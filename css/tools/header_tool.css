@@ -1,0 +1,331 @@
+/* =========================================================
+   Header 转 JSON
+   ========================================================= */
+
+.header-tool {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   页面标题
+   ========================================================= */
+
+.header-tool-header {
+    margin-bottom: 20px;
+}
+
+.header-tool-header h2 {
+    margin: 0 0 8px;
+
+    font-size: 26px;
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    color: #111827;
+}
+
+.header-tool-header p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   卡片
+   ========================================================= */
+
+.header-tool-card {
+    margin-bottom: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   卡片 Header
+   ========================================================= */
+
+.header-tool-card-header {
+    min-height: 64px;
+
+    padding: 16px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.header-tool-card-header h3 {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #1f2937;
+}
+
+.header-tool-card-header p {
+    margin: 0;
+
+    font-size: 12px;
+
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   Card Body
+   ========================================================= */
+
+.header-tool-card-body {
+    padding: 20px;
+}
+
+
+/* =========================================================
+   输入框
+   ========================================================= */
+
+.header-tool-input,
+.header-tool-output {
+    width: 100%;
+
+    min-height: 380px;
+
+    padding: 15px 16px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font-family:
+        Consolas,
+        Monaco,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    outline: none;
+}
+
+.header-tool-input:focus {
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 0 3px rgba(22, 119, 255, 0.08);
+}
+
+
+/* =========================================================
+   输出
+   ========================================================= */
+
+.header-tool-output {
+    background: #f8fafc;
+
+    cursor: text;
+}
+
+
+/* =========================================================
+   按钮
+   ========================================================= */
+
+.header-tool-actions {
+    margin-top: 16px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.header-tool-btn {
+    height: 36px;
+
+    padding: 0 16px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s,
+        border-color 0.15s;
+}
+
+.header-tool-btn:hover {
+    background: #f8fafc;
+
+    border-color: #9ca3af;
+}
+
+.header-tool-btn-primary {
+    border-color: #1677ff;
+
+    background: #1677ff;
+
+    color: #ffffff;
+}
+
+.header-tool-btn-primary:hover {
+    border-color: #4096ff;
+
+    background: #4096ff;
+}
+
+.header-tool-btn-danger {
+    color: #dc2626;
+
+    border-color: #fecaca;
+}
+
+.header-tool-btn-danger:hover {
+    background: #fef2f2;
+
+    border-color: #fca5a5;
+}
+
+.header-tool-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   消息
+   ========================================================= */
+
+.header-tool-message {
+    min-height: 20px;
+
+    margin-top: 10px;
+
+    font-size: 13px;
+}
+
+.header-tool-message.success {
+    color: #16a34a;
+}
+
+.header-tool-message.error {
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   结果信息
+   ========================================================= */
+
+.header-tool-result-info {
+    margin-top: 12px;
+
+    display: flex;
+
+    gap: 20px;
+
+    font-size: 12px;
+
+    color: #6b7280;
+}
+
+.header-tool-result-info strong {
+    color: #111827;
+}
+
+
+/* =========================================================
+   Hidden
+   ========================================================= */
+
+.header-tool .hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   滚动条
+   ========================================================= */
+
+.header-tool-input::-webkit-scrollbar,
+.header-tool-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.header-tool-input::-webkit-scrollbar-thumb,
+.header-tool-output::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+
+    border-radius: 4px;
+}
+
+.header-tool-input::-webkit-scrollbar-thumb:hover,
+.header-tool-output::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+
+/* =========================================================
+   手机端
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .header-tool-card-body {
+        padding: 16px;
+    }
+
+    .header-tool-card-header {
+        padding: 14px 16px;
+    }
+
+    .header-tool-input,
+    .header-tool-output {
+        min-height: 300px;
+    }
+
+    .header-tool-result-info {
+        flex-direction: column;
+
+        gap: 6px;
+    }
+}

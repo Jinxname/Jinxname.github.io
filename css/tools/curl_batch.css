@@ -1,0 +1,834 @@
+/* =====================================================
+   Curl 批量请求
+   ===================================================== */
+
+.curl-batch-tool {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   页面头部
+   ===================================================== */
+
+.curl-batch-header {
+    margin-bottom: 24px;
+}
+
+.curl-batch-header h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.curl-batch-header p {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+
+/* =====================================================
+   卡片
+   ===================================================== */
+
+.curl-batch-card {
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.curl-batch-card.hidden {
+    display: none;
+}
+
+.curl-batch-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.curl-batch-card-header h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.curl-batch-card-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.curl-batch-card-body {
+    padding: 20px;
+}
+
+
+/* =====================================================
+   Curl 输入
+   ===================================================== */
+
+.curl-batch-input {
+    width: 100%;
+    min-height: 260px;
+    padding: 14px 16px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-family:
+        Consolas,
+        Monaco,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    resize: vertical;
+
+    box-sizing: border-box;
+
+    outline: none;
+}
+
+.curl-batch-input:focus {
+    border-color: #2563eb;
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =====================================================
+   按钮
+   ===================================================== */
+
+.curl-batch-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.curl-batch-btn {
+    height: 38px;
+    padding: 0 16px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s,
+        border-color 0.15s,
+        color 0.15s;
+}
+
+.curl-batch-btn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.curl-batch-btn-primary {
+    border-color: #2563eb;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.curl-batch-btn-primary:hover {
+    border-color: #1d4ed8;
+    background: #1d4ed8;
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   消息
+   ===================================================== */
+
+.curl-batch-message {
+    min-height: 20px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.curl-batch-message.success {
+    color: #16a34a;
+}
+
+.curl-batch-message.error {
+    color: #dc2626;
+}
+
+
+/* =====================================================
+   请求基本信息
+   ===================================================== */
+
+.curl-info-grid {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.curl-info-item {
+    min-width: 0;
+    padding: 14px 16px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    background: #f9fafb;
+}
+
+.curl-info-item span {
+    display: block;
+    margin-bottom: 6px;
+
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.curl-info-item strong {
+    display: block;
+
+    font-size: 14px;
+    color: #111827;
+
+    word-break: break-all;
+}
+
+.curl-url-text {
+    font-family:
+        Consolas,
+        Monaco,
+        "Courier New",
+        monospace;
+
+    font-size: 13px !important;
+}
+
+
+/* =====================================================
+   Section
+   ===================================================== */
+
+.curl-section {
+    margin-top: 24px;
+}
+
+.curl-section:first-child {
+    margin-top: 0;
+}
+
+.curl-section-title {
+    margin-bottom: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.curl-section-desc {
+    margin: -4px 0 12px;
+
+    font-size: 13px;
+    color: #6b7280;
+}
+
+
+/* =====================================================
+   参数
+   ===================================================== */
+
+.curl-param-item {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 12px;
+
+    padding: 11px 14px;
+
+    border-bottom: 1px solid #f0f0f0;
+
+    font-size: 13px;
+}
+
+.curl-param-item:first-child {
+    border-top: 1px solid #f0f0f0;
+}
+
+.curl-param-name {
+    color: #374151;
+    font-weight: 500;
+
+    word-break: break-all;
+}
+
+.curl-param-value {
+    color: #6b7280;
+
+    word-break: break-all;
+
+    font-family:
+        Consolas,
+        Monaco,
+        "Courier New",
+        monospace;
+}
+
+
+/* =====================================================
+   动态参数
+   ===================================================== */
+
+.batch-parameter-item {
+    display: grid;
+
+    grid-template-columns:
+        110px
+        minmax(180px, 1fr)
+        220px;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 13px 14px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    margin-bottom: 8px;
+
+    background: #ffffff;
+}
+
+.batch-parameter-item:hover {
+    background: #f9fafb;
+}
+
+.batch-parameter-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    color: #374151;
+}
+
+.batch-parameter-check input {
+    width: 16px;
+    height: 16px;
+
+    margin: 0;
+
+    cursor: pointer;
+}
+
+.batch-parameter-info {
+    min-width: 0;
+}
+
+.batch-parameter-name {
+    margin-bottom: 4px;
+
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+
+    word-break: break-all;
+}
+
+.batch-parameter-value {
+    font-size: 12px;
+    color: #6b7280;
+
+    word-break: break-all;
+}
+
+.batch-parameter-rule {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.batch-parameter-rule span {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.batch-parameter-start,
+.batch-parameter-step {
+    width: 90px;
+    height: 34px;
+
+    padding: 0 9px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.batch-parameter-start:focus,
+.batch-parameter-step:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =====================================================
+   批量配置
+   ===================================================== */
+
+.batch-config {
+    display: grid;
+
+    grid-template-columns:
+        220px
+        220px;
+
+    gap: 16px;
+}
+
+.batch-config-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.batch-config-item label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.batch-config-input {
+    width: 100%;
+    height: 38px;
+
+    padding: 0 10px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+
+    outline: none;
+}
+
+.batch-config-input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =====================================================
+   预览
+   ===================================================== */
+
+.batch-preview-item {
+    margin-bottom: 12px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+.batch-preview-item:last-child {
+    margin-bottom: 0;
+}
+
+.batch-preview-header {
+    display: flex;
+    align-items: center;
+
+    min-height: 42px;
+
+    padding: 0 14px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    background: #f9fafb;
+
+    font-size: 13px;
+    color: #374151;
+}
+
+.batch-preview-content {
+    padding: 14px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #374151;
+}
+
+.batch-preview-content > div {
+    margin-bottom: 8px;
+}
+
+.batch-preview-content > div:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   代码区域
+   ===================================================== */
+
+.batch-detail-pre {
+    width: 100%;
+
+    margin: 8px 0 0;
+
+    padding: 12px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+
+    background: #f8fafc;
+
+    color: #374151;
+
+    font-family:
+        Consolas,
+        Monaco,
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+    word-break: break-all;
+
+    max-height: 420px;
+    overflow: auto;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   执行结果
+   ===================================================== */
+
+.batch-summary {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    flex-shrink: 0;
+
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.batch-summary strong {
+    margin-left: 3px;
+
+    font-size: 14px;
+    color: #111827;
+}
+
+.batch-result-item {
+    margin-bottom: 10px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+.batch-result-item:last-child {
+    margin-bottom: 0;
+}
+
+.batch-result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    min-height: 48px;
+
+    padding: 0 14px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    background: #f9fafb;
+}
+
+.batch-result-header > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 0;
+}
+
+.batch-result-header strong {
+    font-size: 13px;
+    color: #374151;
+}
+
+.batch-result-status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 48px;
+    height: 24px;
+
+    padding: 0 8px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.batch-result-status.success {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.batch-result-status.error {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.batch-view-button {
+    flex-shrink: 0;
+}
+
+.batch-result-content {
+    padding: 12px 14px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #4b5563;
+}
+
+.batch-result-content > div {
+    margin-bottom: 5px;
+}
+
+.batch-result-content > div:last-child {
+    margin-bottom: 0;
+}
+
+.batch-result-url {
+    word-break: break-all;
+}
+
+.batch-result-error {
+    color: #dc2626;
+}
+
+
+/* =====================================================
+   Modal
+   ===================================================== */
+
+#curlResultDetailModal .modal-dialog {
+    max-width: 1100px;
+}
+
+#curlResultDetailModal .modal-content {
+    border: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#curlResultDetailModal .modal-header {
+    padding: 16px 20px;
+}
+
+#curlResultDetailModal .modal-body {
+    padding: 20px;
+}
+
+#curlResultDetailModal h6 {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+#curlResultDetailModal .card {
+    border-color: #e5e7eb;
+    box-shadow: none;
+}
+
+#curlResultDetailModal .card-body {
+    padding: 14px;
+}
+
+
+/* =====================================================
+   隐藏
+   ===================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   响应式
+   ===================================================== */
+
+@media (max-width: 1100px) {
+
+    .batch-parameter-item {
+        grid-template-columns:
+            100px
+            minmax(160px, 1fr)
+            190px;
+    }
+
+    .batch-parameter-start,
+    .batch-parameter-step {
+        width: 75px;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .curl-batch-card-body {
+        padding: 15px;
+    }
+
+    .curl-batch-card-header {
+        padding: 15px;
+    }
+
+    .curl-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .batch-parameter-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .batch-parameter-rule {
+        width: 100%;
+    }
+
+    .batch-config {
+        grid-template-columns: 1fr;
+    }
+
+    .batch-summary {
+        flex-wrap: wrap;
+        gap: 8px 14px;
+    }
+
+    .curl-batch-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .curl-param-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .curl-batch-header h2 {
+        font-size: 20px;
+    }
+
+    .curl-batch-input {
+        min-height: 220px;
+    }
+
+    .curl-batch-actions {
+        width: 100%;
+    }
+
+    .curl-batch-btn {
+        flex: 1;
+    }
+
+    .batch-parameter-rule {
+        flex-wrap: wrap;
+    }
+
+    .batch-result-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px 14px;
+    }
+}
+
+.preview-limit-tip {
+    display: inline-flex;
+    align-items: center;
+
+    margin-left: 8px;
+    padding: 3px 8px;
+
+    border-radius: 5px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    vertical-align: middle;
+}
