@@ -1,0 +1,221 @@
+<div class="timestamp-tool">
+
+
+    <!-- 当前时间 -->
+
+    <div class="timestamp-current-card">
+
+        <div class="timestamp-current-title">
+            当前时间
+        </div>
+
+
+        <div id="currentTime"
+             class="timestamp-current-time">
+            --
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <div class="timestamp-header">
+
+
+        <h2>
+            时间戳转换
+        </h2>
+
+
+        <p>
+            支持秒级(10位)和毫秒级(13位) Unix 时间戳转换
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="timestamp-container">
+
+
+
+        <!-- 日期转时间戳 -->
+
+
+        <div class="timestamp-card">
+
+
+            <div class="timestamp-card-title">
+
+                日期时间 → 时间戳
+
+            </div>
+
+
+
+            <div class="timestamp-body">
+
+
+                <label>
+                    日期时间
+                </label>
+
+
+                <input
+                    id="datetimeInput"
+                    class="timestamp-input"
+                    type="datetime-local"
+                    step="1"
+                >
+
+
+
+                <button
+                    id="dateToTimestampBtn"
+                    class="timestamp-btn">
+
+                    转换
+
+                </button>
+
+
+
+
+
+                <div class="timestamp-result">
+
+
+                    <span>
+                        秒级时间戳（10位）
+                    </span>
+
+
+                    <input
+                        id="timestampResult"
+                        readonly
+                    >
+
+
+
+
+                    <span class="result-margin">
+
+                        毫秒级时间戳（13位）
+
+                    </span>
+
+
+                    <input
+                        id="timestampMsResult"
+                        readonly
+                    >
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- 时间戳转日期 -->
+
+
+        <div class="timestamp-card">
+
+
+            <div class="timestamp-card-title">
+
+                时间戳 → 日期时间
+
+            </div>
+
+
+
+
+            <div class="timestamp-body">
+
+
+
+                <label>
+                    输入时间戳
+                </label>
+
+
+
+                <input
+                    id="timestampInput"
+                    class="timestamp-input"
+                    placeholder="请输入10位或13位时间戳"
+                >
+
+
+
+
+
+                <button
+                    id="timestampToDateBtn"
+                    class="timestamp-btn">
+
+                    转换
+
+                </button>
+
+
+
+
+
+
+                <div class="timestamp-result">
+
+
+                    <span>
+                        日期时间
+                    </span>
+
+
+                    <input
+                        id="datetimeResult"
+                        readonly
+                    >
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</div>

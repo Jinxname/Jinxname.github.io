@@ -1,0 +1,162 @@
+<div class="text-tool">
+
+    <!-- 页面标题 -->
+    <div class="text-tool-header">
+        <h2>文本处理</h2>
+        <p>支持文本去空行、去重、去除首尾空格、合并多余空格、排序等操作。</p>
+    </div>
+
+
+    <!-- 输入区域 -->
+    <div class="text-tool-card">
+
+        <div class="text-tool-card-header">
+
+            <div>
+                <h3>输入文本</h3>
+                <p>请输入或粘贴需要处理的文本内容</p>
+            </div>
+
+            <div class="text-tool-stats">
+                <span>
+                    行数：
+                    <strong id="textInputLineCount">0</strong>
+                </span>
+
+                <span>
+                    字符：
+                    <strong id="textInputCharCount">0</strong>
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="text-tool-card-body">
+
+            <textarea
+                id="textToolInput"
+                class="text-tool-input"
+                placeholder="请输入或粘贴文本内容..."
+                spellcheck="false"
+            ></textarea>
+
+
+            <div class="text-tool-actions">
+
+                <button
+                    type="button"
+                    class="text-tool-btn text-tool-btn-primary"
+                    id="removeEmptyLinesButton">
+                    去除空行
+                </button>
+
+                <button
+                    type="button"
+                    class="text-tool-btn"
+                    id="trimLinesButton">
+                    去除首尾空格
+                </button>
+
+                <button
+                    type="button"
+                    class="text-tool-btn"
+                    id="removeDuplicateButton">
+                    去除重复行
+                </button>
+
+                <button
+                    type="button"
+                    class="text-tool-btn"
+                    id="removeExtraSpacesButton">
+                    合并多余空格
+                </button>
+
+                <button
+                    type="button"
+                    class="text-tool-btn"
+                    id="sortAscButton">
+                    升序排序
+                </button>
+
+                <button
+                    type="button"
+                    class="text-tool-btn"
+                    id="sortDescButton">
+                    降序排序
+                </button>
+
+                <button
+                    type="button"
+                    class="text-tool-btn text-tool-btn-danger"
+                    id="clearTextButton">
+                    清空
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 结果区域 -->
+    <div class="text-tool-card">
+
+        <div class="text-tool-card-header">
+
+            <div>
+                <h3>处理结果</h3>
+                <p>处理后的文本内容</p>
+            </div>
+
+            <div class="text-tool-stats">
+
+                <span>
+                    行数：
+                    <strong id="textResultLineCount">0</strong>
+                </span>
+
+                <span>
+                    字符：
+                    <strong id="textResultCharCount">0</strong>
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="text-tool-card-body">
+
+            <textarea
+                id="textToolOutput"
+                class="text-tool-output"
+                placeholder="处理结果会显示在这里..."
+                spellcheck="false"
+                readonly
+            ></textarea>
+
+
+            <div class="text-tool-actions">
+
+                <button
+                    type="button"
+                    class="text-tool-btn text-tool-btn-primary"
+                    id="copyTextResultButton">
+                    复制结果
+                </button>
+
+            </div>
+
+
+            <div
+                id="textToolMessage"
+                class="text-tool-message">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

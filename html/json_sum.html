@@ -1,0 +1,208 @@
+<div class="json-sum-tool">
+
+    <div class="json-sum-header">
+        <h2>JSON 字段统计</h2>
+        <p>输入 JSON 数组，自动识别数字字段并计算字段总和。</p>
+    </div>
+
+
+    <!-- JSON 输入 -->
+    <div class="json-sum-card">
+
+        <div class="json-sum-card-header">
+            <div>
+                <h3>JSON 数据</h3>
+                <p>支持 JSON 数组格式，例如接口返回的列表数据。</p>
+            </div>
+        </div>
+
+        <div class="json-sum-card-body">
+
+            <textarea
+                id="jsonSumInput"
+                class="json-sum-input"
+                spellcheck="false"
+                placeholder='例如：
+[
+    {
+        "id": 1,
+        "amount": 100,
+        "coins": 50
+    },
+    {
+        "id": 2,
+        "amount": 200,
+        "coins": 80
+    }
+]'></textarea>
+
+
+            <div class="json-sum-actions">
+
+                <button
+                    type="button"
+                    class="json-sum-btn json-sum-btn-primary"
+                    id="parseJsonSumButton"
+                >
+                    解析 JSON
+                </button>
+
+                <button
+                    type="button"
+                    class="json-sum-btn"
+                    id="formatJsonSumButton"
+                >
+                    格式化 JSON
+                </button>
+
+                <button
+                    type="button"
+                    class="json-sum-btn json-sum-btn-danger"
+                    id="clearJsonSumButton"
+                >
+                    清空
+                </button>
+
+            </div>
+
+
+            <div
+                id="jsonSumMessage"
+                class="json-sum-message"
+            ></div>
+
+        </div>
+    </div>
+
+
+    <!-- 字段选择 -->
+    <div
+        id="jsonSumFieldCard"
+        class="json-sum-card hidden"
+    >
+
+        <div class="json-sum-card-header">
+
+            <div>
+                <h3>字段选择</h3>
+                <p>选择需要统计的数字字段。</p>
+            </div>
+
+            <div class="json-sum-data-count">
+                数据：
+                <strong id="jsonSumDataCount">0</strong>
+                条
+            </div>
+
+        </div>
+
+
+        <div class="json-sum-card-body">
+
+            <div class="json-sum-select-actions">
+
+                <button
+                    type="button"
+                    class="json-sum-small-btn"
+                    id="selectAllJsonSumButton"
+                >
+                    全选
+                </button>
+
+                <button
+                    type="button"
+                    class="json-sum-small-btn"
+                    id="unselectAllJsonSumButton"
+                >
+                    取消全选
+                </button>
+
+                <span>
+                    已选择：
+                    <strong id="jsonSumSelectedCount">0</strong>
+                </span>
+
+            </div>
+
+
+            <div
+                id="jsonSumFieldList"
+                class="json-sum-field-list"
+            ></div>
+
+
+            <div class="json-sum-actions">
+
+                <button
+                    type="button"
+                    class="json-sum-btn json-sum-btn-primary"
+                    id="calculateJsonSumButton"
+                >
+                    计算总和
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 统计结果 -->
+    <div
+        id="jsonSumResultCard"
+        class="json-sum-card hidden"
+    >
+
+        <div class="json-sum-card-header">
+
+            <div>
+                <h3>统计结果</h3>
+                <p>已选择字段的数字总和。</p>
+            </div>
+
+            <button
+                type="button"
+                class="json-sum-btn"
+                id="copyJsonSumResultButton"
+            >
+                复制结果
+            </button>
+
+        </div>
+
+
+        <div class="json-sum-card-body">
+
+            <div class="json-sum-table-wrapper">
+
+                <table class="json-sum-table">
+
+                    <thead>
+                        <tr>
+                            <th>字段</th>
+                            <th>总和</th>
+                        </tr>
+                    </thead>
+
+                    <tbody
+                        id="jsonSumResultTableBody"
+                    ></tbody>
+
+                </table>
+
+            </div>
+
+
+            <textarea
+                id="jsonSumResultText"
+                class="json-sum-result-text"
+                readonly
+                spellcheck="false"
+            ></textarea>
+
+        </div>
+
+    </div>
+
+</div>

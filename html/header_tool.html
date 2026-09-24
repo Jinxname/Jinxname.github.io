@@ -1,0 +1,123 @@
+<div class="header-tool">
+
+    <div class="header-tool-header">
+        <h2>Header 转 JSON</h2>
+        <p>将 Curl、浏览器复制的 Header 文本快速转换为 JSON。</p>
+    </div>
+
+
+    <!-- 输入 -->
+    <div class="header-tool-card">
+
+        <div class="header-tool-card-header">
+            <div>
+                <h3>Header 输入</h3>
+                <p>每行一个 Header，例如：Content-Type: application/json</p>
+            </div>
+        </div>
+
+        <div class="header-tool-card-body">
+
+            <textarea
+                id="headerToolInput"
+                class="header-tool-input"
+                placeholder="Content-Type: application/json
+Authorization: Bearer xxx
+User-Agent: Mozilla/5.0
+Accept: application/json"
+                spellcheck="false"
+            ></textarea>
+
+
+            <div class="header-tool-actions">
+
+                <button
+                    type="button"
+                    class="header-tool-btn header-tool-btn-primary"
+                    id="convertHeaderButton"
+                >
+                    转换 JSON
+                </button>
+
+                <button
+                    type="button"
+                    class="header-tool-btn"
+                    id="formatHeaderButton"
+                >
+                    格式化
+                </button>
+
+                <button
+                    type="button"
+                    class="header-tool-btn header-tool-btn-danger"
+                    id="clearHeaderButton"
+                >
+                    清空
+                </button>
+
+            </div>
+
+
+            <div
+                id="headerToolMessage"
+                class="header-tool-message"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 结果 -->
+    <div
+        id="headerToolResultCard"
+        class="header-tool-card hidden"
+    >
+
+        <div class="header-tool-card-header">
+
+            <div>
+                <h3>JSON 结果</h3>
+                <p>已转换为标准 JSON 格式</p>
+            </div>
+
+            <button
+                type="button"
+                class="header-tool-btn header-tool-btn-primary"
+                id="copyHeaderJsonButton"
+            >
+                复制 JSON
+            </button>
+
+        </div>
+
+
+        <div class="header-tool-card-body">
+
+            <textarea
+                id="headerToolOutput"
+                class="header-tool-output"
+                readonly
+                spellcheck="false"
+            ></textarea>
+
+
+            <div class="header-tool-result-info">
+
+                <span>
+                    Header 数量：
+                    <strong id="headerCount">0</strong>
+                </span>
+
+                <span>
+                    JSON 字符数：
+                    <strong id="headerCharCount">0</strong>
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

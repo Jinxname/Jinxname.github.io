@@ -1,0 +1,315 @@
+<div class="curl-batch-tool">
+
+    <!-- 页面标题 -->
+    <div class="curl-batch-header">
+        <h2>接口批量请求</h2>
+        <p>粘贴 Curl 请求，解析请求参数，设置动态参数后批量发送。</p>
+    </div>
+
+
+    <!-- =====================================================
+         Curl 输入
+         ===================================================== -->
+
+    <div class="curl-batch-card">
+
+        <div class="curl-batch-card-header">
+            <div>
+                <h3>Curl 请求</h3>
+                <p>支持 URL、Header、Query、JSON Body、Form Body 参数解析</p>
+            </div>
+        </div>
+
+        <div class="curl-batch-card-body">
+
+            <textarea
+                id="curlInput"
+                class="curl-batch-input"
+                placeholder="请粘贴 Curl 请求，例如：
+
+curl 'https://example.com/api/user?page=1' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer xxx' \
+  --data-raw '{&quot;user_id&quot;:1001,&quot;name&quot;:&quot;test&quot;}'"
+                spellcheck="false"
+            ></textarea>
+
+
+            <div class="curl-batch-actions">
+
+                <button
+                    type="button"
+                    class="curl-batch-btn curl-batch-btn-primary"
+                    id="parseCurlButton"
+                >
+                    解析 Curl
+                </button>
+
+                <button
+                    type="button"
+                    class="curl-batch-btn"
+                    id="clearCurlButton"
+                >
+                    清空
+                </button>
+
+            </div>
+
+
+            <div
+                id="curlMessage"
+                class="curl-batch-message"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         Curl 解析结果
+         ===================================================== -->
+
+    <div
+        id="curlParseResult"
+        class="curl-batch-card hidden"
+    >
+
+        <div class="curl-batch-card-header">
+
+            <div>
+                <h3>请求信息</h3>
+                <p>解析后的 Curl 请求内容</p>
+            </div>
+
+        </div>
+
+
+        <div class="curl-batch-card-body">
+
+            <!-- 基本信息 -->
+            <div class="curl-info-grid">
+
+                <div class="curl-info-item">
+                    <span>请求方法</span>
+                    <strong id="parsedMethod">-</strong>
+                </div>
+
+                <div class="curl-info-item">
+                    <span>请求地址</span>
+                    <strong
+                        id="parsedUrl"
+                        class="curl-url-text"
+                    >
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <!-- Headers -->
+            <div class="curl-section">
+
+                <div class="curl-section-title">
+                    Headers
+                </div>
+
+                <div id="parsedHeaders"></div>
+
+            </div>
+
+
+            <!-- Query -->
+            <div class="curl-section">
+
+                <div class="curl-section-title">
+                    Query 参数
+                </div>
+
+                <div id="parsedQueryParams"></div>
+
+            </div>
+
+
+            <!-- Body -->
+            <div class="curl-section">
+
+                <div class="curl-section-title">
+                    Body 参数
+                </div>
+
+                <div id="parsedBodyParams"></div>
+
+            </div>
+
+
+            <!-- 批量参数 -->
+            <div class="curl-section">
+
+                <div class="curl-section-title">
+                    批量参数
+                </div>
+
+                <p class="curl-section-desc">
+                    勾选需要动态变化的参数，未勾选参数仍会携带 Curl 中的原始值。
+                </p>
+
+                <div id="batchParameterList"></div>
+
+            </div>
+
+
+            <!-- 批量配置 -->
+            <div class="curl-section">
+
+                <div class="curl-section-title">
+                    批量配置
+                </div>
+
+                <div class="batch-config">
+
+                    <div class="batch-config-item">
+
+                        <label for="batchCount">
+                            请求数量
+                        </label>
+
+                        <input
+                            type="number"
+                            id="batchCount"
+                            class="batch-config-input"
+                            value="10"
+                            min="1"
+                            max="1000"
+                        >
+
+                    </div>
+
+                    <div class="batch-config-item">
+
+                        <label for="batchConcurrency">
+                            并发数
+                        </label>
+
+                        <input
+                            type="number"
+                            id="batchConcurrency"
+                            class="batch-config-input"
+                            value="3"
+                            min="1"
+                            max="20"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 操作 -->
+            <div class="curl-batch-actions">
+
+                <button
+                    type="button"
+                    class="curl-batch-btn"
+                    id="previewBatchButton"
+                >
+                    预览批量请求
+                </button>
+
+                <button
+                    type="button"
+                    class="curl-batch-btn curl-batch-btn-primary"
+                    id="startBatchButton"
+                >
+                    开始批量请求
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         批量请求预览
+         ===================================================== -->
+
+    <div
+        id="batchPreviewCard"
+        class="curl-batch-card hidden"
+    >
+
+        <div class="curl-batch-card-header">
+    <div>
+        <h3>
+            批量请求预览
+            <span class="preview-limit-tip">
+                最多预览 5 条
+            </span>
+        </h3>
+        <p>查看动态参数替换后的请求内容</p>
+    </div>
+</div>
+
+
+        <div class="curl-batch-card-body">
+
+            <div id="batchPreviewList"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         批量请求结果
+         ===================================================== -->
+
+    <div
+        id="batchResultCard"
+        class="curl-batch-card hidden"
+    >
+
+        <div class="curl-batch-card-header">
+
+            <div>
+                <h3>请求结果</h3>
+                <p>批量接口执行结果</p>
+            </div>
+
+
+            <div class="batch-summary">
+
+                <span>
+                    总数：
+                    <strong id="batchTotalCount">0</strong>
+                </span>
+
+                <span>
+                    成功：
+                    <strong id="batchSuccessCount">0</strong>
+                </span>
+
+                <span>
+                    失败：
+                    <strong id="batchFailedCount">0</strong>
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="curl-batch-card-body">
+
+            <div id="batchResultList"></div>
+
+        </div>
+
+    </div>
+
+</div>
